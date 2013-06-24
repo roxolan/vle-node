@@ -22,11 +22,15 @@
     "passport-local": "*",
     "connect-roles": "*",
     "lodash": "*",
-    "express3-handlebars": "*"
+    "express3-handlebars": "*",
+    "express-resource-new": "*"
   },
   "devDependencies": {
-    "nodemon": "latest",
+    "nodemon": "*",
     "mocha": "*",
-    "should": "*"
+    "should": "*",
+    "yo": "*",
+    "bower": "*",
+    "grunt-cli": "*"
   }
 }

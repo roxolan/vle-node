@@ -1,0 +1,16 @@
+{
+  "name": "lms-client",
+  "version": "0.0.0",
+  "main": "main",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "dependencies": {
+    "jquery": "*",
+    "jquery.ui": "*",
+    "ember": "*",
+    "ember-data-shim": "*"
+  }
+}
