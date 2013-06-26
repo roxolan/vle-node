@@ -15,7 +15,9 @@ module.exports =
 
 
   new: (req, res) ->
-    res.send 'New user'
+    res.json 200,
+      result: 'ok',
+      info: 'show user create form'
 
   create: (req, res) ->
     User = mongoose.model 'User'

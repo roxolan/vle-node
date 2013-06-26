@@ -13,33 +13,12 @@ module.exports =
 
   #get login form
   new: (req, res, next) ->
-
-    console.log 'Authenticate: ', passport.authenticate('local')
-    authenticate = passport.authenticate 'local', (err, user, info) ->
-      console.log 'Err: ', err
-      console.log 'User: ', user
-      console.log 'Info: ', info
-      if err
-        return next(err)
-      if not user
-        console.log 'Not user!'
-        return res.send 'no user'
-        ###
-          result: 'error'
-          error:
-            nr: 1
-            description: 'authentication failure'
-        .JSONstryngify
-        ###
-      req.logIn user, (err) ->
-        if err
-          return next(err)
-        res.send
-          result: 'ok'
-          user: user
-
-    console.log 'Next: ', next
-    authenticate req, res, next
+    res.json 200,
+      result: 'ok'
+      description: 'request username(email) and password from user'
+      info:
+        api:
+          version: req.params.api
 
   #post login form
   create: (req, res, next) ->

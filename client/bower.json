@@ -8,9 +8,10 @@
     "components"
   ],
   "dependencies": {
-    "jquery": "*",
+    "jquery": "1.9.*",
     "jquery.ui": "*",
     "ember": "*",
-    "ember-data-shim": "*"
+    "ember-data-shim": "*",
+    "bootstrap": "*"
   }
 }

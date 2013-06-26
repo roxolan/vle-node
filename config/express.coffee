@@ -44,8 +44,12 @@ module.exports = (app, config, passport) ->
       showStack: true
       dumpExceptions: true
 
+  #main route
   #resources
-  app.resource 'users'
-  app.resource 'sessions'
+  app.resource 'api', ->
+    app.resource 'users'
+    app.resource 'sessions'
+
+  app.all '*', require(config.path.controllers + '/main')
 
   console.log 'Route: ', app.routes

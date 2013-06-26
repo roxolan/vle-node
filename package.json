@@ -31,6 +31,9 @@
     "should": "*",
     "yo": "*",
     "bower": "*",
-    "grunt-cli": "*"
+    "grunt-cli": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-coffee": "~0.7.0",
+    "grunt-ember-handlebars": "~0.6.0"
   }
 }
