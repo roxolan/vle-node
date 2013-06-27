@@ -32,9 +32,9 @@ module.exports = (app, config, passport) ->
     app.use passport.initialize()
     app.use passport.session()
 
-    app.use app.router
     app.use express.static(path.join(config.path.root, 'public'))
 
+    app.use app.router
     app.use (req, res, next) ->
       res.send "Sorry, but page with url #{req.url} does't exists."
 
