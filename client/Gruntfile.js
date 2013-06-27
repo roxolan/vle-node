@@ -168,6 +168,16 @@ module.exports = function (grunt) {
                 }
             }
         },
+        less: {
+            development: {
+                options: {
+                    paths: ['<%= yeoman.app %>/bower_components/bootstrap/less']
+                },
+                files: {
+                    '.tmp/styles/bootstrap.css': '<%= yeoman.app %>/styles/manifest.less'
+                }
+            }
+        },
         // not used since Uglify task does concat,
         // but still available if needed
         /*concat: {
@@ -228,6 +238,7 @@ module.exports = function (grunt) {
             dist: {
                 files: {
                     '<%= yeoman.dist %>/styles/main.css': [
+                        '.tmp/styles/bootstrap.css',
                         '.tmp/styles/{,*/}*.css',
                         '<%= yeoman.app %>/styles/{,*/}*.css'
                     ]
@@ -285,7 +296,7 @@ module.exports = function (grunt) {
             dist: [
                 'emberTemplates',
                 'coffee',
-                'compass:dist',
+                'less',
                 'imagemin',
                 'svgmin',
                 'htmlmin'
@@ -355,6 +366,10 @@ module.exports = function (grunt) {
         'rev',
         'usemin'
     ]);
+
+    grunt.registerTask('bootstrap', ['less']);
+
+    grunt.registerTask('styles', ['boostrap'])
 
     grunt.registerTask('default', [
         'jshint',
