@@ -1,3 +1,46 @@
-<h2>Welcome to Ember.js</h2>
-
-{{outlet}}
+<div class="container">
+  <header class="row">
+    <div class="span12">
+      <div>
+        <h2>Hidden</h2>
+        {{view App.AuthView}}
+      </div>
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="btn-group pull-right">
+            <button {{action 'login'}} class="btn">Login</button>
+            <button class="btn">Register</button>
+            {{#if App.Auth.signedIn}}
+            <p>Hello</p>
+            {{else}}
+            <p>unknown</p>
+            {{/if}}
+          </div>
+          <a class="brand">LMS Reserch</a>
+          <ul class="nav">
+            <li>
+              <a href="#">First</a>
+            </li>
+            <li>
+              <a href="#">Second</a>
+            </li>
+            <li>
+              <a href="#">Third</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <section class="row">
+    <div class="span12">
+      {{outlet}}
+    </div>
+  </section>
+  <footer class="row">
+    <div class="span12">
+      &copy;2013
+    </div>
+  </footer>
+</div>

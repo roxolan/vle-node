@@ -128,22 +128,27 @@ module.exports = function (grunt) {
             }
         },
         coffee: {
+            options: {
+              bare: true
+            },
             dist: {
                 files: [{
                     expand: true,
                     cwd: '<%= yeoman.app %>/scripts',
-                    src: '{,*/}*.coffee',
+                    src: '{,*/,*/*/}*.coffee',
                     dest: '.tmp/scripts',
-                    ext: '.js'
+                    ext: '.js',
+                    bare: true
                 }]
             },
             test: {
                 files: [{
                     expand: true,
                     cwd: 'test/spec',
-                    src: '{,*/}*.coffee',
+                    src: '{,*/,*/*}*.coffee',
                     dest: '.tmp/spec',
-                    ext: '.js'
+                    ext: '.js',
+                    bare: true
                 }]
             }
         },
@@ -193,7 +198,7 @@ module.exports = function (grunt) {
             dist: {
                 files: {
                     src: [
-                        '<%= yeoman.dist %>/scripts/{,*/}*.js',
+                        '<%= yeoman.dist %>/scripts/{,*/,*/*/}*.js',
                         '<%= yeoman.dist %>/styles/{,*/}*.css',
                         '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
                         '<%= yeoman.dist %>/styles/fonts/*'
@@ -319,7 +324,7 @@ module.exports = function (grunt) {
             app: {
                 options: {
                     filepathTransform: function (filepath) {
-                        return 'app/' + filepath;
+                        return '.tmp/' + filepath;
                     }
                 },
                 src: '<%= yeoman.app %>/scripts/app.js',
