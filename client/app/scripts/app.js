@@ -12,6 +12,7 @@ require('scripts/views/{*,*/*}');
 
 App.Router.map(function () {
   // put your routes here
+  this.route("profile");
 });
 
 App.Router.reopen({

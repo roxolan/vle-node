@@ -25,6 +25,7 @@ App.AuthSignInView = Ember.View.extend
       password = @get 'password'
       console.log "email: ", email, ", password: ", password
       if email and email.length and password and password.length
+        @set 'hidden', true
         App.Auth.signIn
           data:
             email: @get 'email'

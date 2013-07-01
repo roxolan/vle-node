@@ -11,3 +11,20 @@ App.Auth = Ember.Auth.create
     tokenKey: 'remember_token'
     period: 7
     autoRecall: true
+
+App.Auth.on 'signInSuccess', ->
+  console.log 'Sign in Successful: ', arguments
+  App.Router.router.transitionTo('profile')
+
+App.Auth.on 'signInError', ->
+  console.log 'Sign in Error: ', arguments
+  #App.Router.router.transitionTo('index')
+  error = App.AuthSignInErrorView.create()
+  console.log 'Err: ', error
+  #console.log 'AUTHERR: ', authSignInErrorView.appendTo('#errors-block')
+  #console.log 'AAA: ', authSignInErrorView.$('.alert')
+
+App.Auth.on 'signOutSuccess', ->
+  console.log 'Sign out Success: ', arguments
+  App.Router.router.transitionTo('index')
+
