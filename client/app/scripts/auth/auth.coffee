@@ -1,6 +1,6 @@
 App.Auth = Ember.Auth.create
   signInEndPoint: '/api/0.1/sessions'
-  signOutEndPoint: '/api/0.1/sessions'
+  signOutEndPoint: '/api/0.1/sessions/1'
 
   token_key: 'auth_token'
   tokenIdKey: 'user_id'

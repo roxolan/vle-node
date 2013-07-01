@@ -1,21 +1,9 @@
 <div class="container">
   <header class="row">
     <div class="span12">
-      <div>
-        <h2>Hidden</h2>
-        {{view App.AuthView}}
-      </div>
       <div class="navbar">
         <div class="navbar-inner">
-          <div class="btn-group pull-right">
-            <button {{action 'login'}} class="btn">Login</button>
-            <button class="btn">Register</button>
-            {{#if App.Auth.signedIn}}
-            <p>Hello</p>
-            {{else}}
-            <p>unknown</p>
-            {{/if}}
-          </div>
+          {{view App.AuthView}}
           <a class="brand">LMS Reserch</a>
           <ul class="nav">
             <li>

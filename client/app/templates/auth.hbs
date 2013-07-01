@@ -1,1 +1,12 @@
-{{ view App.AuthSignInView }}
+{{#if App.Auth.signedIn}}
+  <div class="btn-group pull-right">
+    <button data-action="signout" class="btn">Logout</button>
+  </div>
+{{else}}
+  {{ view App.AuthSignInView viewName="loginModal"}}
+  <div class="btn-group pull-right">
+    <button data-action='login' class="btn">Login</button>
+    <button class="btn">Register</button>
+  </div>
+{{/if}}
+
