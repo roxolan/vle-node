@@ -1,0 +1,13 @@
+Installation
+
+$git clone git@bitbucket.org:dazatsepin/lmsresearch.git
+$cd lmsresearch
+$npm install
+$npm install grunt-cli bower -g
+$cd client
+$npm install
+$bower install
+$grunt build
+$cd ..
+$make
+$coffee server.coffee
