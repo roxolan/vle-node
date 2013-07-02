@@ -3,6 +3,7 @@ passport    = require 'passport'
 fs          = require 'fs'
 http        = require 'http'
 mongoose    = require 'mongoose'
+fixtures    = require 'pow-mongoose-fixtures'
 
 configure   = require './config/config'
 expresser   = require './config/express'
@@ -17,6 +18,10 @@ modelsDir.forEach (file) ->
   url = "#{config.path.models}/#{file}"
   console.log 'URL: ', url
   require url
+
+console.log 'Fixtures: ', config.fixtures
+console.log 'connection: ', mongoose.connection
+fixtures.load config.fixtures, mongoose.connection
 
 passporter passport, config
 

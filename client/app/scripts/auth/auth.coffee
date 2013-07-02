@@ -14,12 +14,12 @@ App.Auth = Ember.Auth.create
 
 App.Auth.on 'signInSuccess', ->
   console.log 'Sign in Successful: ', arguments
-  App.Router.router.transitionTo('profile')
+  App.Router.router.transitionTo('user')
 
 App.Auth.on 'signInError', ->
   console.log 'Sign in Error: ', arguments
   #App.Router.router.transitionTo('index')
-  error = App.AuthSignInErrorView.create()
+  error = App.AuthSignInErrorView.create({})
   console.log 'Err: ', error
   #console.log 'AUTHERR: ', authSignInErrorView.appendTo('#errors-block')
   #console.log 'AAA: ', authSignInErrorView.$('.alert')

@@ -12,7 +12,7 @@ require('scripts/views/{*,*/*}');
 
 App.Router.map(function () {
   // put your routes here
-  this.route("profile");
+  this.route("user", { path: "/profile" });
 });
 
 App.Router.reopen({
@@ -22,7 +22,7 @@ App.Router.reopen({
 App.Store = DS.Store.extend({
   revision: 11,
   adapter: DS.RESTAdapter.create({
-    url: '/api'
+    url: '/api/0.1'
   })
 });
 

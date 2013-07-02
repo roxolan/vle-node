@@ -28,6 +28,7 @@
   "devDependencies": {
     "nodemon": "*",
     "mocha": "*",
-    "should": "*"
+    "should": "*",
+    "pow-mongoose-fixtures": "~0.3.0"
   }
 }

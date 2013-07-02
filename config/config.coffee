@@ -4,7 +4,7 @@ path = require 'path'
 rootPath = path.normalize __dirname + "/../"
 
 main =
-  name: "Node research"
+  name: "LMS research"
   version: "0.0.1"
 
   path:
@@ -16,7 +16,8 @@ main =
 
 config =
   development:
-    db: "mongodb://localhost/testproject"
+    db: "mongodb://localhost/lmsresearch"
+    fixtures: path.join rootPath, "db/fixtures"
   test: {}
   production: {}
 

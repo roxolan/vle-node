@@ -31,7 +31,7 @@ module.exports =
         return next(err)
       if not user
         console.log 'Not user!'
-        return res.json 500,
+        return res.json 400,
           result: 'error'
           error:
             nr: 1
@@ -42,7 +42,7 @@ module.exports =
           return next(err)
         res.json
           result: 'ok'
-          user: user
+          user_id: user._id
 
     authenticate req, res, next
 
