@@ -10,12 +10,13 @@ module.exports =
     user = req.user or null
     if user
       res.json
-        id: user._id
-        name: user.name
-        email: user.email
-        username: user.username
+        user:
+          id: user._id
+          name: user.name
+          email: user.email
+          username: user.username
     else
-      json 400,
+      res.json 400,
         result: 'error'
 
   show: (req, res) ->

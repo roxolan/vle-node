@@ -1,3 +1,25 @@
-Name: {{name}}
-Email: {{email}}
-Username: {{username}}
+{{#if App.Auth.signedIn}}
+  <h3>User profile</h3>
+  <table class="table">
+    <tbody>
+      <tr>
+        <td>Name</td>
+        <td>{{name}}</td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td>{{email}}</td>
+      </tr>
+      <tr>
+        <td>Username</td>
+        <td>{{username}}</td>
+      </tr>
+    </tbody>
+  </table>
+{{else}}
+  <div class="alert alert-block alert-error">
+    <h4 class="alert-heading">You are not authorized!</h4>
+    Please, sign in.
+  </div>
+{{/if}}
+
