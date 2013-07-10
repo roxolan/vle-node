@@ -12,7 +12,8 @@ exports.User = [
     name: 'user2',
     email: 'user2@gmail.com',
     username: 'User2',
-    password: '2'
+    password: '2',
+    role: 'admin'
   }
 ]
 

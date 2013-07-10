@@ -22,6 +22,9 @@ UserSchema = new Schema
   salt:
     type: String
     default: ''
+  role:
+    type: String
+    default: ''
 
 
 UserSchema

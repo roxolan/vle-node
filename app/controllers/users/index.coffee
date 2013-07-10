@@ -1,10 +1,18 @@
 #Users controller
-mongoose = require 'mongoose'
-passport = require 'passport'
+mongoose  = require 'mongoose'
+passport  = require 'passport'
+user      = require 'connect-roles'
 
 module.exports =
   
   index: (req, res) ->
+    #user = req.user
+
+    #if user.is 'admin'
+    # admin can see all user's information
+    #else
+    # other users can see only part of user's info
+
     console.log 'Params: ', req.params
     #res.send 'Users index:' + req.params.format
     user = req.user or null
@@ -34,34 +42,60 @@ module.exports =
         result: 'error'
 
 
-  new: (req, res) ->
-    res.json 200,
-      result: 'ok',
-      info: 'show user create form'
+  new: [
+    user.is 'admin'
 
-  create: (req, res) ->
-    User = mongoose.model 'User'
-    user = new User req.body
-    user.provider = 'local'
-    user.save (err) ->
-      if err
-        return res.json 500,
-          result: 'error'
-          errors: err.errors,
-          user: user
-      req.logIn user, (err) ->
+    (req, res) ->
+      res.json 200,
+        result: 'ok',
+        info: 'show user create form'
+  ]
+
+  create: [
+    user.is 'admin'
+
+    (req, res) ->
+      User = mongoose.model 'User'
+      user = new User req.body
+      user.provider = 'local'
+      user.save (err) ->
         if err
           return res.json 500,
             result: 'error'
-            errors: err.errors
-        return res.json 200,
-          result: 'ok'
+            errors: err.errors,
+            user: user
+        req.logIn user, (err) ->
+          if err
+            return res.json 500,
+              result: 'error'
+              errors: err.errors
+          return res.json 200,
+            result: 'ok'
+  ]
 
-  edit: (req, res) ->
-    res.send 'Edit user: ' + req.params.user
+  edit: [
+    user.can 'edit own profile'
 
-  update: (req, res) ->
-    res.send 'Update user: ' + req.params.user
+    (req, res) ->
+      console.log 'req.role: ', req.role
 
-  destroy: (req, res) ->
-    res.send 'Destroy user: ' + req.params.user
+      res.json 200,
+        result: 'ok'
+        user: req.user._id
+
+  ]
+
+
+  update: [
+    user.can 'edit own profile'
+
+    (req, res) ->
+      res.send 'Update user: ' + req.params.user
+  ]
+
+  destroy: [
+    user.is 'admin' #not implemented yet
+
+    (req, res) ->
+      res.send 'Destroy user: ' + req.params.user
+  ]
