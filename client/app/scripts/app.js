@@ -19,11 +19,18 @@ App.Router.reopen({
   location: 'history'
 });
 
+/*
 App.Store = DS.Store.extend({
   revision: 11,
+
   adapter: DS.RESTAdapter.create({
     url: '/api/0.1'
   })
+});
+*/
+App.Store = DS.Store.extend({
+  revision: 11,
+  adapter: DS.FixtureAdapter.create()
 });
 
 App.IndexRoute = Ember.Route.extend({
