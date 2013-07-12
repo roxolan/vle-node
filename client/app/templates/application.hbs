@@ -5,11 +5,11 @@
       <div class="navbar">
         <div class="navbar-inner">
           {{view App.AuthView}}
-          <a class="brand">LMS Reserch</a>
+          {{#linkTo index class='brand'}}LMS Reserch{{/linkTo}}
           <ul class="nav">
-            <li>
-              <a href="#">First</a>
-            </li>
+            {{#linkTo courses tagName='li'}}
+            {{#linkTo courses}}Courses{{/linkTo}}
+            {{/linkTo}}
             <li>
               <a href="#">Second</a>
             </li>

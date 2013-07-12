@@ -1,6 +1,8 @@
 /*global Ember, DS */
 
-var App = window.App = Ember.Application.create();
+var App = window.App = Ember.Application.create({
+  LOG_TRANSITIONS: true
+});
 
 /* Order and include as you please. */
 require('scripts/auth/*');
@@ -12,13 +14,15 @@ require('scripts/views/{*,*/*}');
 
 App.Router.map(function () {
   // put your routes here
-  this.route("user", { path: "/profile" });
-  this.resource("courses", function(){
-    this.resource("course", { path: "/:course_id" }, function(){
-      this.route("lection", { path: "/lections/:lection_id" });
+  //this.route("user", { path: "/profile" });
+  this.resource("courses", function () {
+    this.route("show", { path: "/:course_id" });
+    this.resource("lections", function () {
+      this.route('show', { path: "/:lection_id" });
     });
   });
 });
+
 
 App.Router.reopen({
   location: 'history'
