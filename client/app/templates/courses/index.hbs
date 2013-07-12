@@ -1,0 +1,26 @@
+courses index
+{{#each model}}
+  {{#linkTo 'course.index'}}
+    Course
+  {{/linkTo}}
+  <div class="course-preview">
+    <div class="course-thumbnail">
+      <img src="" />
+    </div>
+    <div class="course-information">
+      <div class="course-title">{{title}}</div>
+      <div class="course-info">
+        <div class="course-rating">{{rating}}</div>
+        <div class="course-students-number">{{students}}</div>
+      </div>
+      <div class="course-owner">
+        <div class="course-owner-avatar"></div>
+        <div class="course-owner-info">
+          <div class="course-owner-name"></div>
+          <div class="course-owner-logo"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{title}}
+{{/each}}

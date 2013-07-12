@@ -13,6 +13,11 @@ require('scripts/views/{*,*/*}');
 App.Router.map(function () {
   // put your routes here
   this.route("user", { path: "/profile" });
+  this.resource("courses", function(){
+    this.resource("course", { path: "/:course_id" }, function(){
+      this.route("lection", { path: "/lections/:lection_id" });
+    });
+  });
 });
 
 App.Router.reopen({
