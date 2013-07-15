@@ -1,4 +1,59 @@
 <h2>{{title}}</h2>
 <p>
-{{description}}
+  {{description}}
 </p>
+<div class="row-fluid">
+  <div class="span8">
+    <section class="panel curriculum">
+      <header>
+        Curriculum
+      </header>
+      <div class="content-body">
+        {{#each sections}}
+          <section class="section">
+            <header>
+              <span class="section-number">Section {{index}}</span>
+              <span class="section-name">{{title}}</span>
+            </header>
+            <div class="section-content">
+              {{#each lecture in lectures}}
+                <section class="lecture">
+                  <header>
+                    <span>Lecture #: <a href="">{{lecture.title}}</a></span>
+                    <span class="label label-info">{{lecture.contentType}}</span>
+                  </header>
+                </section>
+              {{/each}}
+            </div>
+          </section>
+        {{/each}}
+      </div>
+
+    </section>
+  </div>
+  <div class="span4">
+    <section class="panel ratecourse">
+      <header>
+        Rate this course
+      </header>
+    </section>
+    <section class="panel questions">
+      <header>Questions</header>
+      <div class="question-input-panel">
+        <form class="form-horizontal">
+          <div class="control-group">
+            <input type="text" class="question-input">
+          </div>
+          <div class="control-group">
+            <button type="submit" class="btn">Ask</button>
+          </div>
+        </form>
+      </div>
+      <div class="content-body">
+        questions
+      </div>
+    </section>
+  </div>
+</div>
+
+
