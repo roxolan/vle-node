@@ -83,3 +83,14 @@ section.lecture {
 .question-input-panel .question-input {
     width: 95%;
 }
+
+.course-rating-control .star {
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+    background: url("/images/star_gray_16.png") no-repeat center center;
+}
+
+.course-rating-control .star.active {
+    background-image: url("/images/star_gold_16.png");
+}

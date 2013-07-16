@@ -34,7 +34,10 @@
   <div class="span4">
     <section class="panel ratecourse">
       <header>
-        Rate this course
+        <span>Rate this course</span>
+        <span class="course-rating-control">
+          {{view App.Rater ratingBinding=myRating}}
+        </span>
       </header>
     </section>
     <section class="panel questions">
