@@ -48,6 +48,7 @@ section.section > header {
 }
 
 section.section .section-number {
+    width: 85px;
     background: #8c9296;
     background: -webkit-linear-gradient(#a5abaf, #8c9296);
     background: -o-linear-gradient(#a5abaf, #8c9296);
@@ -55,13 +56,26 @@ section.section .section-number {
     background: linear-gradient(#a5abaf, #8c9296);
     color: #fff;
     text-shadow: 0 -1px 1px #666666;
-    padding: 2px 25px 2px 10px;
+    padding: 2px 0 2px 10px;
     border-radius: 10px;
     margin-top: 2px;
 }
 
+section.section .section-number > div {
+    border: 5px solid #8c9296;
+    border-radius: 20px;
+    background-color: #fff;
+    float: right;
+    width: 20px;
+    text-align: center;
+    margin: -5px -2px 0 0;
+    color: #8c9296;
+    text-shadow: none;
+    font-weight: bold;
+}
+
 section.section .section-name {
-    margin-left: 10px;
+    padding: 4px 0 0 5px;
     color: #53AD24;
     font-weight: bold;
 }
@@ -70,9 +84,25 @@ section.section .section-content {
     padding-left: 30px;
 }
 
-section.lecture {
-    margin-bottom: 5px;
+section.lecture-anons {
+    margin-bottom: 3px;
+    padding: 4px 1px 0 2px;
     font-size: 0.9em;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+}
+
+section.lecture-anons:hover {
+    border-color: #ddd;
+    background-color: #fff;
+}
+
+section.lecture-anons .lecture-action {
+    display: none;
+}
+
+section.lecture-anons:hover .lecture-action {
+    display: block;
 }
 
 

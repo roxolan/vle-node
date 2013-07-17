@@ -1,5 +1,5 @@
 
-App.Rater = Ember.View.extend
+App.RaterView = Ember.View.extend
   templateName: 'star_rater'
   tagName: 'span'
 
@@ -56,4 +56,5 @@ App.Rater = Ember.View.extend
       count += 1
       if star == target
         break
+
     @get('controller').send('setRate', count)

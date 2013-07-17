@@ -6,9 +6,11 @@ App.Lecture = DS.Model.extend
   content:  DS.attr 'string'
   contentType:  DS.attr 'string'
 
+  progress: DS.attr 'number'
+
   section: DS.belongsTo 'App.CourseSection'
   questions: DS.hasMany 'App.Question'
-  progress: DS.belongsTo 'App.LearnProgress'
+
 
 
 App.Lecture.FIXTURES = [
@@ -19,6 +21,7 @@ App.Lecture.FIXTURES = [
     content: 'http://www.youtube.com/videofile1.wma'
     section: 1
     questions: []
+    progress: 100
   }
   {
     id: 2
@@ -27,6 +30,7 @@ App.Lecture.FIXTURES = [
     content: 'http://www.youtube.com/videofile2.wma'
     section: 1
     questions: []
+    progress: 50
   }
   {
     id: 3
@@ -35,6 +39,7 @@ App.Lecture.FIXTURES = [
     content: 'http://www.youtube.com/videofile3.wma'
     section: 2
     questions: []
+    progress: 0
   }
   {
     id: 4
@@ -43,5 +48,6 @@ App.Lecture.FIXTURES = [
     content: 'http://www.youtube.com/videofile4.wma'
     section: 2
     questions: []
+    progress: 0
   }
 ]

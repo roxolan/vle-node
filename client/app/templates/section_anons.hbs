@@ -1,0 +1,18 @@
+<section class="section">
+  <header>
+    <div class="row-fluid">
+      <div class="span2">
+        <div class="section-number">Section <div>{{view.sectionIndex}}</div></div>
+      </div>
+      <div class="span10">
+        <div class="section-name">{{title}}</div>
+      </div>
+    </div>
+
+  </header>
+  <div class="section-content">
+    {{#each lectures itemController="lecture"}}
+      {{view App.LectureAnonsView contentBinding="this"}}
+    {{/each}}
+  </div>
+</section>
