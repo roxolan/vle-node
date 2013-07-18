@@ -11,10 +11,8 @@
       <div class="content-body">
         {{#each sections}}
           {{view App.SectionAnonsView contentBinding="this"}}
-
         {{/each}}
       </div>
-
     </section>
   </div>
   <div class="span4">
@@ -39,7 +37,7 @@
         </form>
       </div>
       <div class="content-body">
-        questions
+        {{view App.QuestionsCourseView}}
       </div>
     </section>
   </div>

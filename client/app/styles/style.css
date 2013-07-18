@@ -124,3 +124,9 @@ section.lecture-anons:hover .lecture-action {
 .course-rating-control .star.active {
     background-image: url("/images/star_gold_16.png");
 }
+
+.course-questions {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}

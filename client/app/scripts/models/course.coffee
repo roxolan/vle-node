@@ -7,9 +7,9 @@ App.Course = DS.Model.extend
   myRating: DS.attr 'number'
   students: DS.attr 'number'
 
-
   owner:    DS.belongsTo 'App.User'
   sections: DS.hasMany 'App.CourseSection'
+  questions: DS.hasMany 'App.Question'
 
 App.Course.FIXTURES = [
   {
@@ -21,6 +21,7 @@ App.Course.FIXTURES = [
     students: 434
     owner: 2
     sections: [1, 2]
+    questions: [1, 2, 3]
   }
   {
     id: 2
@@ -30,5 +31,13 @@ App.Course.FIXTURES = [
     students: 1921
     owner: 2
     sections: [3, 4]
+  }
+  {
+    id: 3
+    title: 'Hello'
+    description: ''
+    rating: 1.57
+    students: 12
+    qustions: []
   }
 ]

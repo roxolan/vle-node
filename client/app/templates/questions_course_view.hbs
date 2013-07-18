@@ -1,0 +1,25 @@
+{{#each questions itemController="question"}}
+  {{#view contentBinding="this"}}
+    <li>
+      <section class="answer">
+        <header>
+          {{body}}
+        </header>
+        <footer>
+          <div class="tags">
+            <div>
+              <span>{{answersLength}}</span> Answer(s)
+            </div>
+
+            {{#if lecture}}
+            <div>
+              <span>Lecture {{lecture.number}}</span>
+            </div>
+            {{/if}}
+          </div>
+          {{authorName}} asked it.
+        </footer>
+      </section>
+    </li>
+  {{/view}}
+{{/each}}
