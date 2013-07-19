@@ -39,6 +39,25 @@ section.panel > .content-body {
     padding: 10px 15px;
 }
 
+section.course-info > header .thumb {
+    float: left;
+    width: 110px;
+    height: 60px;
+    border-radius: 3px;
+    background-position: center;
+    background-size: cover;
+    border: 1px solid #282828;
+    margin-right: 10px;
+}
+
+section.course-info > header h2 {
+    color: #5589b6;
+    font-size: 18px;
+    text-shadow: 0 1px #fff;
+    line-height: 1.2;
+    margin-top: 5px;
+}
+
 section.section {
     margin-bottom: 10px;
 }
@@ -127,6 +146,63 @@ section.lecture-anons:hover .lecture-action {
 
 .course-questions {
     list-style: none;
+    margin: 0 -15px;
+    padding: 0;
+}
+
+.course-questions li {
     margin: 0;
     padding: 0;
+}
+
+.course-questions a {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.course-questions a:hover {
+    text-decoration: none;
+}
+
+.course-questions a section.answer {
+    text-decoration: none;
+    background: #f2f2f2;
+    background: -webkit-linear-gradient(#ffffff,#f2f2f2);
+    background: -o-linear-gradient(#ffffff,#f2f2f2);
+    background: -ms-linear-gradient(#ffffff,#f2f2f2);
+    background: linear-gradient(#ffffff,#f2f2f2);
+    padding: 10px 40px 10px 10px;
+    border-top: 1px solid #c5c5c5;
+}
+
+.course-questions a:hover section.answer {
+    text-decoration: none;
+    background: #758594;
+    background: -webkit-linear-gradient(#acb7c1,#758594);
+    background: -o-linear-gradient(#acb7c1,#758594);
+    background: -ms-linear-gradient(#acb7c1,#758594);
+    background: linear-gradient(#acb7c1,#758594);
+}
+
+.course-questions section.answer > header {
+    color: #353535;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+section.panel.questions > .content-body {
+    padding-bottom: 0;
+}
+
+.course-questions section.answer .author {
+    color: #555;
+    text-shadow: 0 1px #ddd;
+    font-size: 12px;
+}
+
+.course-questions a:hover section.answer .author {
+    color: #333;
+    text-shadow: 0 1px #999;
 }

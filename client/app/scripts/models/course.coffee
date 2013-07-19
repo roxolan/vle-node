@@ -16,6 +16,7 @@ App.Course.FIXTURES = [
     id: 1
     title: 'JavaScript for all'
     description: 'The best course about javascript and it`s frameworks of all'
+    thumbnail: 'course_1.jpg'
     rating: 2.45
     myRating: 3
     students: 434
