@@ -1,5 +1,3 @@
-
-
 App.Lecture = DS.Model.extend
   title:  DS.attr 'string'
   number: DS.attr 'number'
@@ -11,8 +9,6 @@ App.Lecture = DS.Model.extend
 
   section: DS.belongsTo 'App.CourseSection'
   questions: DS.hasMany 'App.Question'
-
-
 
 App.Lecture.FIXTURES = [
   {

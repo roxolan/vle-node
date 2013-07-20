@@ -206,3 +206,41 @@ section.panel.questions > .content-body {
     color: #333;
     text-shadow: 0 1px #999;
 }
+
+
+.announcements-buttons ul {
+    margin-bottom: 0;
+}
+.announcements-buttons ul li {
+    background: #f2f2f2;
+    background: -webkit-linear-gradient(#ffffff,#f2f2f2);
+    background: -o-linear-gradient(#ffffff,#f2f2f2);
+    background: -ms-linear-gradient(#ffffff,#f2f2f2);
+    background: linear-gradient(#ffffff,#f2f2f2);
+    border-top: 1px solid #c5c5c5;
+    color: #353535;
+    padding: 10px;
+    position: relative;
+    display: block;
+    cursor: pointer;
+}
+
+.announcements-buttons .btn-announce .title {
+    float: left;
+    font-size: 13px;
+    margin-top: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 190px;
+    text-align: left;
+}
+
+.announcements-buttons .btn-announce .how-long {
+    color: #999;
+    float: right;
+    font-size: 11px;
+    margin-top: 6px;
+
+    width: 65px;
+}
