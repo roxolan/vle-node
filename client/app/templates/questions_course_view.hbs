@@ -1,24 +1,46 @@
-{{#each questions itemController="question"}}
-  {{#view contentBinding="this"}}
-    <li>
-      <a>
-        <section class="answer">
-          <header>
-            {{body}}
-          </header>
-          <footer>
-            <div class="tags">
-              <span {{bindAttr class=":label answersLength:label-success"}}>
-                <span>{{answersLength}}</span> Answer(s)
-              </span>
-              {{#if lecture}}
-                <span class="label">Lecture {{lecture.number}}</span>
-              {{/if}}
-            </div>
-            <span class="author">{{authorName}} asked it.</span>
-          </footer>
-        </section>
-      </a>
-    </li>
-  {{/view}}
-{{/each}}
+<header>Questions</header>
+<div class="question-input-panel">
+  <form class="form-horizontal">
+    <div class="control-group">
+      <input type="text" class="question-input" data-action="show-ask-form" placeholder="Type your question about this course">
+    </div>
+  </form>
+  <form {{bindAttr class=":form-horizontal :ask-question-form view.showAskForm::hide"}} {{action askQuestion on="submit"}}>
+    <div class="control-group">
+      <textarea></textarea>
+    </div>
+    <div class="control-group">
+      <button type="submit" class="btn btn-primary">Ask</button>
+      <button type="reset" class="btn btn-small" data-action="hide-ask-form">Cancel</button>
+    </div>
+  </form>
+</div>
+<div class="content-body">
+  <ul class="course-questions">
+    {{#each questions itemController="question"}}
+      {{#view contentBinding="this"}}
+        <li>
+          <a>
+            <section class="answer">
+              <header>
+                {{body}}
+              </header>
+              <footer>
+                <div class="tags">
+                    <span {{bindAttr class=":label answersLength:label-success"}}>
+                      <span>{{answersLength}}</span> Answer(s)
+                    </span>
+                  {{#if lecture}}
+                    <span class="label">Lecture {{lecture.number}}</span>
+                  {{/if}}
+                </div>
+                <span class="author">{{authorName}} asked it.</span>
+              </footer>
+            </section>
+          </a>
+        </li>
+      {{/view}}
+    {{/each}}
+  </ul>
+</div>
+

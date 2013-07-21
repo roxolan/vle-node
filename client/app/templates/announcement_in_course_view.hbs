@@ -1,0 +1,19 @@
+<li>
+  <div class="btn-announce" {{action openAnnouncement}}>
+    <div class="title">{{title}}</div>
+    <div class="how-long icon-time">10 hours ago</div>
+    <div class="clearfix"></div>
+  </div>
+  <div {{bindAttr class=":modal hidden:hide hidden:fade"}}>
+    <div class="modal-header">
+      <button type="button" class="close" {{action closeAnnouncement}}>x</button>
+      <h4>{{title}}</h4>
+    </div>
+    <div class="modal-body">
+      {{body}}
+    </div>
+    <div class="modal-footer">
+      <button class="btn" {{action closeAnnouncement}}>Close</button>
+    </div>
+  </div>
+</li>

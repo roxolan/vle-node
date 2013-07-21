@@ -9,30 +9,65 @@
       return 'background-image: url(/images/' + thumb + ');';
     }.property(),
 
+    /*
+    * It returns first unfinished lecture in a course
+    * */
     nextLecture: function() {
-      var sections = this.get('sections').toArray(), lectures;
-      var lecture = null, section, progress;
-      for (var i = 0, len = sections.length; i < len; i += 1) {
-        section = sections[i];
-        lectures = section.get('lectures');
-        console.log('Section title: ', section.get('title'));
-        console.log('Lectures: ', lectures)
-        lectures = lectures ? lectures.toArray() : null;
-        console.log('Section: ', section, ', lectures: ', lectures, ', length: ', lectures.length);
-        if (lectures) {
-          for (var j = 0, jlen = lectures.length; j < jlen; j += 1) {
-            lecture = lectures[j];
-            progress = lecture.get('progress');
-            console.log('Lecture: ', lecture, ', progress: ', progress);
-            if (progress < 100) {
-              return lecture.get('title');
-            }
-          }
+      var sections = this.get('sections').toArray();
+      var lectureTitle = null, section, nextLecture;
 
+      for (var i = 0, slen = sections.length; i < slen; i += 1) {
+        section = sections[i];
+        nextLecture = section.get('nextLecture');
+
+        console.log('Next lecture title: ', nextLecture);
+
+        if (nextLecture) {
+          lectureTitle = nextLecture;
+          break;
         }
 
       }
-    }.property('sections.length', 'sections.lectures.length')
+
+      return lectureTitle;
+    }.property('sections.@each.nextLecture'),
+
+    /*
+    * It calculates a percent of finished lectures in a course
+    * */
+    commonProgress: function() {
+      var sections = this.get('sections').toArray(), section;
+      var lecturesCount = 0, finishedLectures = 0;
+
+      for (var i = 0, slen = sections.length; i < slen; i += 1) {
+        section = sections[i];
+        finishedLectures += section.get('finished');
+        lecturesCount += section.get('lectures').toArray().length;
+        console.log('Section progress: ', finishedLectures, ', lectures: ', lecturesCount);
+      }
+
+      //return lecturesCount > 0 ? finishedLectures * 100 / lecturesCount : 0;
+      return [lecturesCount, finishedLectures];
+    }.property('sections.@each.finished'),
+
+    askQuestion: function(event) {
+      console.log('Event: ', event);
+      var $form = $('.ask-question-form');
+      var $question = $('textarea', $form);
+      console.log('Question: ', $question.val());
+      var course = this.model;
+
+      if ($question.val().length) {
+        console.log('new question: ', $question.val());
+
+        var question = App.Question.createRecord({
+          body: $question.val(),
+          course: course
+        });
+        var questions = this.get('questions');
+        //question.pushObject(question);
+      }
+    }
   });
 
 })(window, window.Ember, window.App);

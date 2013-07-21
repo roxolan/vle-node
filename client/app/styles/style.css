@@ -244,3 +244,8 @@ section.panel.questions > .content-body {
 
     width: 65px;
 }
+
+.ask-question-form textarea {
+    width: 95%;
+    height: 80px;
+}

@@ -1,0 +1,9 @@
+<div>
+  You have completed {{view.complited}} of {{view.lecturesCount}} items in this course
+</div>
+<div class="progress">
+  <div class="bar" {{bindAttr style="view.progress"}}></div>
+</div>
+{{#if view.hasNextLecture}}
+  <a class="btn btn-success">Continue with Lecture: {{nextLecture}}</a>
+{{/if}}
