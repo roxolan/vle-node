@@ -15,14 +15,25 @@ require('scripts/views/{*,*/*}');
 App.Router.map(function () {
   // put your routes here
   //this.route("user", { path: "/profile" });
-  this.resource("courses", function () {
-    this.route("show", { path: "/:course_id" });
-    this.resource("lections", function () {
-      this.route('show', { path: "/:lection_id" });
+  this.resource('courses');
+  this.resource('course', { path: '/courses/:course_id'}, function(){
+
+    this.resource('lecture', { path: 'lecture/:lecture_id' },  function () {
+      this.route('show');
     });
   });
+  /*
+  this.resource('course', { path: ':course_id' }, function () {
+    this.resource('sections');
+    this.resource('section', { path: '/section/:section_id' }, function () {
+      this.resource('lectures');
+      this.resource('lecture', { path: '/lecture/:lecture_id' },  function () {
+        this.route('show');
+      });
+    });
+  });
+  */
 });
-
 
 App.Router.reopen({
   location: 'history'
@@ -38,10 +49,9 @@ App.Store = DS.Store.extend({
 });
 */
 App.Store = DS.Store.extend({
-  revision: 11,
+  revision: 12,
   adapter: DS.FixtureAdapter.create()
 });
-
 App.IndexRoute = Ember.Route.extend({
   model: function () {
     return ['one', 'two', 'three'];

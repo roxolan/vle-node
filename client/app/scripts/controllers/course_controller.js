@@ -1,5 +1,6 @@
 (function(window, Em, App, undefined){
-  App.CoursesShowController = Em.ObjectController.extend({
+
+  App.CourseIndexController = Em.ObjectController.extend({
     setRate: function(rate) {
       this.set('myRating', rate);
     },
@@ -36,6 +37,7 @@
     * It calculates a percent of finished lectures in a course
     * */
     commonProgress: function() {
+      console.log('Title: ', this.get('title'), this);
       var sections = this.get('sections').toArray(), section;
       var lecturesCount = 0, finishedLectures = 0;
 
