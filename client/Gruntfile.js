@@ -264,15 +264,26 @@ module.exports = function (grunt) {
         }]
       },
       img: {
-        files: [{
+        files: [
+        {
           expand: true,
+          dot: true,
+          cwd: '<%= yeoman.app %>/bower_components/bootstrap/img',
+          dest: 'dist/img',
+          src: [
+            '*.png'
+          ]
+        },
+        {
+         expand: true,
           dot: true,
           cwd: '<%= yeoman.app %>',
           dest: 'dist',
           src: [
             '{*/,*/*}*.jpg'
           ]
-        }]
+        }
+        ]
       },
       dist: {
         files: [{

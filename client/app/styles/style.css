@@ -240,9 +240,8 @@ section.panel.questions > .content-body {
     color: #999;
     float: right;
     font-size: 11px;
-    margin-top: 6px;
-
-    width: 65px;
+    margin-top: 2px;
+    width: 85px;
 }
 
 .ask-question-form textarea {
@@ -264,9 +263,19 @@ section.panel.questions > .content-body {
 #lecture-view section.lecture-view {
     background: url('/images/tweed.png');
     box-shadow: inset -1px 0 3px #111;
+    padding-left: 250px;
 }
 
-#lecture-view section.lecture-view > header {
+#lecture-view section.lecture-view .lecture-box {
+    border-left: 4px solid #222;
+    box-shadow: -1px 0 0 #444, inset 1px 0 0 #666;
+}
+
+#lecture-view section.lecture-view .lecture-left {
+    margin-left: -250px;
+}
+
+#lecture-view section.lecture-view  header {
    padding: 10px;
 }
 
@@ -274,7 +283,58 @@ section.panel.questions > .content-body {
 
 }
 
+.back-button span {
+    margin-left: 5px;
+}
+
 .height100 {
     height: 100%;
 }
 
+#lecture-view section.lecture-view header .title {
+    height: 40px;
+    margin: 40px 0 20px 77px;
+}
+
+#lecture-view section.lecture-view header .title .section {
+    float: left;
+    background-color: #888;
+    border-radius: 15px;
+    padding: 3px 0 3px 10px;
+    position: relative;
+    text-shadow: -1px 0 1px #444;
+}
+
+#lecture-view section.lecture-view header .title .section .lecture {
+    margin-left: 5px;
+    background-color: #111;
+    border-radius: 15px;
+    padding: 5px 25px 5px 15px;
+    text-shadow: 0 -1px 0 #333;
+}
+
+#lecture-view section.lecture-view header .title .section .lecture-number {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: -8px -20px 0 0;
+    padding: 6px;
+    text-align: center;
+    border-radius: 25px;
+    border: 5px solid black;
+    width: 20px;
+    height: 20px;
+
+    background: #8bbb27 url("/images/noise.png");
+    background: url("/images/noise.png"),-webkit-linear-gradient(#8bbb27,#608119);
+    background: url("/images/noise.png"),-o-linear-gradient(#8bbb27,#608119);
+    background: url("/images/noise.png"),-ms-linear-gradient(#8bbb27,#608119);
+    background: url("/images/noise.png"),linear-gradient(#8bbb27,#608119);
+}
+
+#lecture-view section.lecture-view header .title h3 {
+    float: left;
+    margin: -7px 0 0 32px;
+    padding: 0;
+    font-size: 18px;
+}

@@ -1,15 +1,24 @@
 <div class="row-fluid height100">
-    <div class="span9 height100">
-        <section class="lecture-view height100">
-            <header>
-                <div>{{#linkTo course.index class="btn btn-success"}}Back to course{{/linkTo}}</div>
-                <div>
-                    Lecture # {{number}} : <h3>{{title}}</h3>
-                </div>
-            </header>
-        </section>
-    </div>
-    <div class="span3">
-        Questions
-    </div>
+  <div class="span9 height100">
+    <section class="lecture-view height100">
+      <div class="lecture-box height100">
+        <div class="lecture-left height100">
+          <header>
+            <div>{{#linkTo course.index class="back-button btn btn-success"}}<i class="icon-arrow-left"></i><span>Back to course</span>{{/linkTo}}</div>
+            <div class="title">
+              <div class="section">Section {{section.number}}<span class="lecture">Lecture</span><div class="lecture-number">{{number}}</div></div>
+              <h3>{{title}}</h3>
+            </div>
+          </header>
+          <div class="content-body">
+            {{content}}
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="span3">
+    Questions
+  </div>
 </div>
+

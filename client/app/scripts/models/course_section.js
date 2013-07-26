@@ -1,6 +1,7 @@
 (function(window, Em, App, DS, undefined){
   App.CourseSection = DS.Model.extend({
     title:    DS.attr('string'),
+    number:   DS.attr('number'),
 
     course:   DS.belongsTo('App.Course'),
     lectures: DS.hasMany('App.Lecture'),
@@ -51,12 +52,14 @@
     {
       id: 1,
       title: 'JS first steps',
+      number: 1,
       course: 1,
       lectures: [1, 2]
     },
     {
       id: 2,
       title: 'JavaScript in browsers',
+      number: 2,
       course: 1,
       lectures: [3, 4]
     }
