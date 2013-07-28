@@ -11,14 +11,44 @@
             </div>
           </header>
           <div class="content-body">
-            {{content}}
+            {{&lectureContent}}
+          </div>
+          <div class="lecture-controls">
+            <button class="btn btn-success">Next lecture <i class="icon-arrow-right"></i></button>
           </div>
         </div>
+
       </div>
     </section>
   </div>
   <div class="span3">
-    Questions
+    <div class="lecture-info">
+      <div class="btn-group">
+        <div {{bindAttr class=":btn isDescription:active:"}} {{action showDescription}}>
+          <i class="icon-info-sign"></i>
+          Description
+        </div>
+        <div {{bindAttr class=":btn isQuestions:active:"}} {{action showQuestions}}>
+          <i class="icon-question-sign"></i>
+          Questions
+        </div>
+        <div {{bindAttr class=":btn isNotes:active:"}} {{action showNotes}}>
+          <i class="icon-list"></i>
+          Notes
+        </div>
+      </div>
+      <div {{bindAttr class=":lecture-info-content toView"}}>
+        <div class="tab1">
+          {{description}}
+        </div>
+        <div class="tab2">
+          {{view App.QuestionsCourseView}}
+        </div>
+        <div class="tab3">
+          {{view App.LectureNotesView}}
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 

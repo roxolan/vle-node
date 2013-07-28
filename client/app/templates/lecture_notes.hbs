@@ -1,0 +1,10 @@
+<div class="create-note-panel">
+  {{view Ember.TextField id="new-note" placeholder="You may write your note here?" valueBinding="newNote" action="createNote"}}
+</div>
+<div class="edit-note-panel">
+  <ul class="unstyled">
+    {{#each notes itemController="lectureNote"}}
+      {{view App.SingleNoteView}}
+    {{/each}}
+  </ul>
+</div>

@@ -276,7 +276,8 @@ section.panel.questions > .content-body {
 }
 
 #lecture-view section.lecture-view  header {
-   padding: 10px;
+    padding: 10px;
+    height: 15%;
 }
 
 #lecture-view section.lecture-view > header .backlink {
@@ -338,3 +339,117 @@ section.panel.questions > .content-body {
     padding: 0;
     font-size: 18px;
 }
+
+#lecture-view .lecture-info {
+    padding: 5px;
+    background-color: #eee;
+    margin: 10px 10px 0 -6%;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    box-shadow: inset -1px -1px 3px #bbb, inset 1px 1px 2px #fff;
+}
+
+#lecture-view .lecture-info .lecture-info-content {
+
+}
+
+#lecture-view .lecture-info .lecture-info-content .tab1,
+#lecture-view .lecture-info .lecture-info-content .tab2,
+#lecture-view .lecture-info .lecture-info-content .tab3 {
+    display: none;
+}
+
+#lecture-view .lecture-info .lecture-info-content.description .tab1 {
+    display: block;
+    background-color: #fefefe;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 5px;
+    color: #555;
+    padding: 5px;
+}
+
+#lecture-view .lecture-info .lecture-info-content.questions .tab2 {
+    display: block;
+}
+
+#lecture-view .lecture-info .lecture-info-content.notes .tab3 {
+    display: block;
+    display: block;
+    margin: 5px -5px -5px -5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #aaa;
+}
+
+#lecture-view .lecture-info .lecture-info-content .tab3 .create-note-panel {
+    padding: 10px;
+    background-color: #eee;
+    border-top: 1px solid #ddd;
+}
+
+#lecture-view .lecture-info .lecture-info-content .tab3 .create-note-panel input {
+    width: 95%;
+
+}
+
+#lecture-view .lecture-info .lecture-info-content .tab3 .edit-note-panel {
+    background-color: #fff;
+    color: #333;
+}
+
+#lecture-view .content-body {
+    margin-left: 85px;
+    height: 70%;
+}
+
+#lecture-view .content-body iframe {
+    width: 95%;
+    height: 100%;
+}
+
+#lecture-view .lecture-controls {
+    height: 5%;
+    padding: 10px 0 10px;
+}
+
+.edit-note-panel ul li:after {
+    content: '***';
+    display: block;
+    text-align: center;
+    font-size: 1.5em;
+    color: #6ecc0d;
+}
+.edit-note-panel ul li:last-child:after {
+    display: none;
+}
+.edit-note-panel ul li > div {
+    margin: 0 5px 5px 5px;
+    border: 1px solid transparent;
+}
+
+.edit-note-panel ul li > div:hover {
+    border: 1px solid #222;
+}
+.edit-note-panel ul li > div .edit-block {
+    display: none;
+}
+
+.edit-note-panel ul li > div.edit .edit-block {
+    display: block;
+}
+.edit-note-panel ul li > div.edit:hover {
+    border: none;
+}
+.edit-note-panel ul li > div p {
+    padding: 0;
+}
+.edit-note-panel ul li > div.edit p {
+    display: none;
+}
+
+.edit-note-panel ul li > div textarea {
+    width: 96%;
+    margin: 0;
+}
+
