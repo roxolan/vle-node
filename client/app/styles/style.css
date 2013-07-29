@@ -258,22 +258,26 @@ section.panel.questions > .content-body {
     min-height: 100%;
     background-color: #333;
     color: #fdfefd;
+    overflow: auto;
+    background: url('/images/tweed.png');
+}
+
+#lecture-view .lecture-box {
+    margin-left: 250px;
+    box-shadow: inset 1px 0 0 #656565, -1px 0 0 #333;
+    border-left: 4px solid #222;
+}
+
+#lecture-view .lecture-left {
+    margin-left: -250px;
 }
 
 #lecture-view section.lecture-view {
-    background: url('/images/tweed.png');
-    box-shadow: inset -1px 0 3px #111;
-    padding-left: 250px;
 }
 
-#lecture-view section.lecture-view .lecture-box {
-    border-left: 4px solid #222;
-    box-shadow: -1px 0 0 #444, inset 1px 0 0 #666;
-}
 
-#lecture-view section.lecture-view .lecture-left {
-    margin-left: -250px;
-}
+
+
 
 #lecture-view section.lecture-view  header {
     padding: 10px;
@@ -340,10 +344,17 @@ section.panel.questions > .content-body {
     font-size: 18px;
 }
 
+#lecture-view .lecture-info-wrapper {
+    background-color: #333;
+    background-color: #333;
+    padding: 10px;
+    box-shadow: -1px 0 2px #333;
+}
+
 #lecture-view .lecture-info {
     padding: 5px;
     background-color: #eee;
-    margin: 10px 10px 0 -6%;
+    margin: 10px 10px 0 0;
     border-radius: 5px;
     border: 1px solid #aaa;
     box-shadow: inset -1px -1px 3px #bbb, inset 1px 1px 2px #fff;
@@ -398,7 +409,7 @@ section.panel.questions > .content-body {
     color: #333;
 }
 
-#lecture-view .content-body {
+#lecture-view .content-body.lecture-content {
     margin-left: 85px;
     height: 70%;
 }
@@ -408,9 +419,9 @@ section.panel.questions > .content-body {
     height: 100%;
 }
 
-#lecture-view .lecture-controls {
+#lecture-view footer {
     height: 5%;
-    padding: 10px 0 10px;
+    padding: 10px;
 }
 
 .edit-note-panel ul li:after {

@@ -7,10 +7,10 @@
   </form>
   <form {{bindAttr class=":form-horizontal :ask-question-form view.showAskForm::hide"}} {{action askQuestion on="submit"}}>
     <div class="control-group">
-      <textarea></textarea>
+      {{view Ember.TextArea id="new-question" placeholder="You may write your question here?" valueBinding="newQuestion"}}
     </div>
     <div class="control-group">
-      <button type="submit" class="btn btn-primary">Ask</button>
+      <button type="submit" class="btn btn-primary" {{action createQuestion}}>Ask</button>
       <button type="reset" class="btn btn-small" data-action="hide-ask-form">Cancel</button>
     </div>
   </form>

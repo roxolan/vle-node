@@ -1,8 +1,10 @@
-<div class="row-fluid height100">
-  <div class="span9 height100">
-    <section class="lecture-view height100">
-      <div class="lecture-box height100">
-        <div class="lecture-left height100">
+
+<div class="lecture-box height100">
+  <div class="lecture-left height100">
+
+    <div class="row-fluid height100">
+      <div class="span8 height100">
+        <section class="lecture-view height100">
           <header>
             <div>{{#linkTo course.index class="back-button btn btn-success"}}<i class="icon-arrow-left"></i><span>Back to course</span>{{/linkTo}}</div>
             <div class="title">
@@ -10,45 +12,49 @@
               <h3>{{title}}</h3>
             </div>
           </header>
-          <div class="content-body">
+          <div class="content-body lecture-content">
             {{&lectureContent}}
           </div>
-          <div class="lecture-controls">
-            <button class="btn btn-success">Next lecture <i class="icon-arrow-right"></i></button>
+          <footer>
+            <button class="btn btn-success" {{action nextLecture}}>Next lecture <i class="icon-arrow-right"></i></button>
+          </footer>
+        </section>
+      </div>
+      <div class="span4 height100">
+        <div class="lecture-info-wrapper height100">
+          <div class="lecture-info">
+            <div class="btn-group">
+              <div {{bindAttr class=":btn isDescription:active:"}} {{action showDescription}}>
+                <i class="icon-info-sign"></i>
+                Description
+              </div>
+              <div {{bindAttr class=":btn isQuestions:active:"}} {{action showQuestions}}>
+                <i class="icon-question-sign"></i>
+                Questions
+              </div>
+              <div {{bindAttr class=":btn isNotes:active:"}} {{action showNotes}}>
+                <i class="icon-list"></i>
+                Notes
+              </div>
+            </div>
+            <div {{bindAttr class=":lecture-info-content toView"}}>
+              <div class="tab1">
+                {{description}}
+              </div>
+              <div class="tab2">
+                {{view App.QuestionsCourseView}}
+              </div>
+              <div class="tab3">
+                {{view App.LectureNotesView}}
+              </div>
+            </div>
           </div>
-        </div>
-
-      </div>
-    </section>
-  </div>
-  <div class="span3">
-    <div class="lecture-info">
-      <div class="btn-group">
-        <div {{bindAttr class=":btn isDescription:active:"}} {{action showDescription}}>
-          <i class="icon-info-sign"></i>
-          Description
-        </div>
-        <div {{bindAttr class=":btn isQuestions:active:"}} {{action showQuestions}}>
-          <i class="icon-question-sign"></i>
-          Questions
-        </div>
-        <div {{bindAttr class=":btn isNotes:active:"}} {{action showNotes}}>
-          <i class="icon-list"></i>
-          Notes
-        </div>
-      </div>
-      <div {{bindAttr class=":lecture-info-content toView"}}>
-        <div class="tab1">
-          {{description}}
-        </div>
-        <div class="tab2">
-          {{view App.QuestionsCourseView}}
-        </div>
-        <div class="tab3">
-          {{view App.LectureNotesView}}
         </div>
       </div>
     </div>
+
+
+
   </div>
 </div>
 

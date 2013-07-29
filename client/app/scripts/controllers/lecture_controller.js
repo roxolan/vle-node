@@ -56,6 +56,17 @@
       return this.get('internal_state') === 2;
     }.property('internal_state'),
 
+    nextLecture: function() {
+      var lNumber = this.get('number');
+      var nNumber = lNumber + 1;
+      //TODO: convert it to query when we gone from FIXTURES to requests to the server.
+      var lecs = App.Lecture.find();
+      console.log('lecs: ', lecs, ', lArray: ', lecs.toArray());
+      var nLecture = lecs.findProperty('number', nNumber);
+      console.log('Number: ', nNumber, ', lecture: ', nLecture);
+      this.transitionToRoute('lecture.index', nLecture);
+    },
+
     createNote: function () {
       var noteBody = this.get('newNote');
       console.log('createNote: ', noteBody);
@@ -65,7 +76,17 @@
       });
       this.set('newNote', '');
       note.save();
-      console.log('model: ', this.get('model'));
+    },
+
+    createQuestion: function () {
+      var questionBody = this.get('newQuestion');
+      console.log('createQuestion: ', questionBody);
+      var question = App.Question.createRecord({
+        body: questionBody,
+        lecture: this.get('model')
+      });
+      this.set('newQuestion', '');
+      question.save();
     }
 
   });
