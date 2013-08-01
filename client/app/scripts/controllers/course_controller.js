@@ -13,6 +13,26 @@
     /*
     * It returns first unfinished lecture in a course
     * */
+    nextLectureObj: function() {
+      var sections = this.get('sections').toArray();
+      var lecture = null, section, nextLecture;
+
+      for (var i = 0, slen = sections.length; i < slen; i += 1) {
+        section = sections[i];
+        nextLecture = section.get('nextLectureObj');
+        console.log('Next course lecture: ', nextLecture);
+        if (nextLecture) {
+          lecture = nextLecture;
+          break;
+        }
+
+      }
+      return lecture;
+    }.property('sections.@each.nextLectureObj'),
+
+    /*
+    * It returns first unfinished lecture title in a course
+    * */
     nextLecture: function() {
       var sections = this.get('sections').toArray();
       var lectureTitle = null, section, nextLecture;
@@ -51,6 +71,13 @@
       //return lecturesCount > 0 ? finishedLectures * 100 / lecturesCount : 0;
       return [lecturesCount, finishedLectures];
     }.property('sections.@each.finished'),
+
+    commonProgressInPercents: function() {
+      var commonProgress = this.get('commonProgress');
+      var lecturesCount = commonProgress[0], finished = commonProgress[1];
+      var progress = lecturesCount > 0 ? finished * 100 / lecturesCount : 0;
+      return "width: " + progress + "%;"
+    }.property('commonProgress'),
 
     askQuestion: function(event) {
       console.log('Event: ', event);

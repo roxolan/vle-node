@@ -1,25 +1,67 @@
-<h2>Courses</h2>
-{{#each course in model}}
-  {{#linkTo 'course.index' course}}
-  <div class="course-preview well">
-    <div class="course-thumbnail">
-      <img src="" />
-    </div>
-    <div class="course-information">
-      <div class="course-title">{{course.title}}</div>
-      <div class="course-info">
-        <div class="course-rating">{{course.rating}}</div>
-        <div class="course-students-number">{{cours.students}}</div>
+<article class="my-courses">
+  <header>
+    <h2>My courses</h2>
+    <nav>
+      <div class="btn-group">
+        <a class="btn btn-success active" href="">Learning <span>(1)</span></a>
+        <a class="btn" href="">Completed <span>(0)</span></a>
+        <a class="btn" href="">Teaching <span>(0)</span></a>
       </div>
-      <div class="course-owner">
-        <div class="course-owner-avatar">{{course.id}}</div>
-        <div class="course-owner-info">
-          <div class="course-owner-name"></div>
-          <div class="course-owner-logo"></div>
-        </div>
-      </div>
+    </nav>
+  </header>
+
+  <div class="content-body">
+    <ul class="unstyled">
+      {{#each course in model itemController="courseIndex"}}
+        <li>
+          <div class="course-preview">
+            {{#linkTo 'course.index' course}}
+              <div class="course-thumbnail" {{bindAttr style="mainTumb"}}></div>
+            {{/linkTo}}
+            <div class="course-progress">
+              <div class="progress progress-success progress-striped">
+                <div class="bar" {{bindAttr style="commonProgressInPercents"}}></div>
+              </div>
+              <div class="course-next-lecture">
+                Next lecture:
+                {{#if course.nextLectureObj}}
+                  {{#linkTo lecture.index course course.nextLectureObj}}{{course.nextLecture}}{{/linkTo}}
+                {{else}}
+                  <span class="alert alert-danger alert-small">there is no lectures in this course</span>
+                {{/if}}
+              </div>
+            </div>
+              <div class="course-information">
+                <div class="course-title">
+                  {{#linkTo 'course.index' course}}
+                    {{course.title}}
+                  {{/linkTo}}
+                </div>
+                <div class="course-author">
+                </div>
+              </div>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+
+</article>
+
+<!-- All courses template
+<div class="course-thumbnail" {{bindAttr style="mainTumb"}}></div>
+<div class="course-information">
+  <div class="course-title">{{course.title}}</div>
+  <div class="course-info">
+    <div class="course-rating">{{course.rating}}</div>
+    <div class="course-students-number">{{cours.students}}</div>
+  </div>
+  <div class="course-owner">
+    <div class="course-owner-avatar">{{course.id}}</div>
+    <div class="course-owner-info">
+      <div class="course-owner-name"></div>
+      <div class="course-owner-logo"></div>
     </div>
   </div>
-  {{/linkTo}}
-  {{title}}
-{{/each}}
+</div>
+-->

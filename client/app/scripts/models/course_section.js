@@ -25,7 +25,7 @@
     }.property('lectures.@each.progress'),
 
     /*
-    * It returns first unfinished lecture in section
+    * It returns first unfinished lecture title in section
     */
     nextLecture: function() {
 
@@ -44,7 +44,27 @@
       console.log('Try to return next lecture: ', next);
 
       return next;
+    }.property('lectures.@each.progress'),
+
+    /*
+    * It returns first unfinished lecture obj in section
+    */
+    nextLectureObj: function() {
+
+      var lectures = this.get('lectures').toArray(), lecture, next = null;
+
+      for (var i = 0, llen = lectures.length; i < llen; i += 1) {
+        lecture = lectures[i];
+        var progress = lecture.get('progress');
+        if (progress < 100) {
+          next = lecture;
+          break;
+        }
+      }
+      console.log('Return next lecture obj: ', next);
+      return next;
     }.property('lectures.@each.progress')
+
   });
 
 

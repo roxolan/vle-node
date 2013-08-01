@@ -10,13 +10,34 @@
             <div class="title">
               <div class="section">Section {{section.number}}<span class="lecture">Lecture</span><div class="lecture-number">{{number}}</div></div>
               <h3>{{title}}</h3>
+              <h2>Course:{{controllers.course.title}}</h2>
             </div>
           </header>
           <div class="content-body lecture-content">
             {{&lectureContent}}
           </div>
           <footer>
-            <button class="btn btn-success" {{action nextLecture}}>Next lecture <i class="icon-arrow-right"></i></button>
+            <div class="row-fluid">
+              <div class="span8">
+                <button class="btn btn-success" {{action nextLectureTransition}}>Next lecture <i class="icon-arrow-right"></i></button>
+                {{resetPrevNext}}
+                {{#if nextLecture}}
+                  {{#linkTo lecture.index nextLecture class="btn"}}Next{{/linkTo}}
+                {{/if}}
+                {{#if prevLecture}}
+                  {{#linkTo lecture.index prevLecture class="btn"}}Prev{{/linkTo}}
+                {{/if}}
+              </div>
+              <div class="span4">
+                <button {{bindAttr class=":btn :btn-small isCompleted:btn-warning:btn-success"}} {{action completeLecture}}>
+                  {{#if isCompleted}}
+                    Mark as uncompleted <i class="icon-refresh"></i>
+                  {{else}}
+                    Mark as completed <i class="icon-check"></i>
+                  {{/if}}
+                </button>
+              </div>
+            </div>
           </footer>
         </section>
       </div>

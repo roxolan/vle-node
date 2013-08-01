@@ -7,7 +7,7 @@
     description: DS.attr('string'),
     lectureContent: DS.attr('string'),
     contentType: DS.attr('string'),
-    progress: DS.attr('number'),
+    progress: DS.attr('number'),  //0 - 100 %
 
     section: DS.belongsTo('App.CourseSection'),
     questions: DS.hasMany('App.Question'),
