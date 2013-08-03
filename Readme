@@ -10,4 +10,4 @@ $bower install
 $grunt build
 $cd ..
 $make
-$coffee server.coffee
+$npm start

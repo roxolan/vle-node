@@ -1,5 +1,4 @@
-mongoose = require('mongoose');
-
+var mongoose = require('mongoose');
 
 exports.User = [
   {
@@ -15,5 +14,5 @@ exports.User = [
     password: '2',
     role: 'admin'
   }
-]
+];
 
