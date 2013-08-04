@@ -25,6 +25,7 @@ modelsDir.forEach(function(file) {
 });
 
 console.log('Fixtures: ', config.fixtures);
+fixtures.load(config.fixtures, mongoose);
 
 passporter(passport, config);
 

@@ -1,3 +1,5 @@
+//Session controller
+
 var passport = require('passport');
 
 module.exports = {
@@ -22,8 +24,7 @@ module.exports = {
     });
   },
   create: function(req, res, next) {
-    var authenticate;
-    authenticate = passport.authenticate('local', function(err, user, info) {
+    var authenticate = passport.authenticate('local', function(err, user, info) {
       console.log('Err: ', err);
       console.log('User: ', user);
       console.log('Info: ', info);
@@ -39,16 +40,18 @@ module.exports = {
             description: 'authentication failure'
           }
         });
-      }
-      req.logIn(user, function(err) {
-        if (err) {
-          next(err);
-        }
-        res.json({
-          result: 'ok',
-          user_id: user._id
+      } else {
+        req.logIn(user, function(err) {
+          if (err) {
+            next(err);
+          }
+          res.json({
+            result: 'ok',
+            user_id: user._id
+          });
         });
-      });
+      }
+
     });
     authenticate(req, res, next);
   },

@@ -14,7 +14,7 @@ require('scripts/views/{*,*/*}');
 
 App.Router.map(function () {
   // put your routes here
-  //this.route("user", { path: "/profile" });
+  this.route("user", { path: "/profile" });
   this.resource('courses');
   this.resource('course', { path: '/courses/:course_id'}, function(){
 
@@ -39,19 +39,26 @@ App.Router.reopen({
   location: 'history'
 });
 
-/*
 App.Store = DS.Store.extend({
-  revision: 11,
+  revision: 12,
 
   adapter: DS.RESTAdapter.create({
-    url: '/api/0.1'
+    url: '/api/0.1',
+    serializer: DS.RESTSerializer.extend({
+      primaryKey: function (type){
+        return '_id';
+      }
+    })
   })
 });
-*/
+
+/*
 App.Store = DS.Store.extend({
   revision: 12,
   adapter: DS.FixtureAdapter.create()
 });
+*/
+
 App.IndexRoute = Ember.Route.extend({
   model: function () {
     return ['one', 'two', 'three'];

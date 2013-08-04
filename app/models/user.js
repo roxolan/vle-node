@@ -7,6 +7,7 @@ var mongoose  = require('mongoose')
   , _         = require('lodash');
 
 var UserSchema = new Schema({
+  _id: Number,
   name: {
     type: String,
     "default": ''
@@ -30,7 +31,9 @@ var UserSchema = new Schema({
   role: {
     type: String,
     "default": ''
-  }
+  },
+  courses_learning_ids: [ { type: Number, ref: 'Course' } ],
+  courses_author_ids: [ {type: Number, ref: 'Course'} ]
 });
 
 UserSchema.virtual('password')

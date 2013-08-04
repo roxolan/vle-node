@@ -3,16 +3,16 @@
 */
 var mongoose = require('mongoose')
   , passport = require('passport')
-  , user = require('connect-roles');
+  , userRole = require('connect-roles');
 
 module.exports = {
   index: function(req, res) {
     console.log('Params: ', req.params);
-    user = req.user || null;
+    var user = req.user || null;
     if (user) {
       res.json({
         user: {
-          id: user._id,
+          _id: user._id,
           name: user.name,
           email: user.email,
           username: user.username
@@ -26,11 +26,11 @@ module.exports = {
   },
   show: function(req, res) {
     console.log('Show user: ', req.params.user);
-    user = req.user || null;
+    var user = req.user || null;
     if (user) {
       res.json({
         user: {
-          id: user._id,
+          _id: user._id,
           name: user.name,
           email: user.email,
           username: user.username
@@ -43,28 +43,29 @@ module.exports = {
     }
   },
   "new": [
-    user.is('admin'), function(req, res) {
-      return res.json(200, {
+    userRole.is('admin'),
+    function(req, res) {
+      res.json(200, {
         result: 'ok',
         info: 'show user create form'
       });
     }
   ],
   create: [
-    user.is('admin'), function(req, res) {
-      var User;
-      User = mongoose.model('User');
-      user = new User(req.body);
+    userRole.is('admin'),
+    function(req, res) {
+      var User = mongoose.model('User');
+      var user = new User(req.body);
       user.provider = 'local';
-      return user.save(function(err) {
+      user.save(function(err) {
         if (err) {
-          return res.json(500, {
+          res.json(500, {
             result: 'error',
             errors: err.errors,
             user: user
           });
         }
-        return req.logIn(user, function(err) {
+        req.logIn(user, function(err) {
           if (err) {
             return res.json(500, {
               result: 'error',
@@ -79,22 +80,25 @@ module.exports = {
     }
   ],
   edit: [
-    user.can('edit own profile'), function(req, res) {
+    userRole.can('edit own profile'),
+    function(req, res) {
       console.log('req.role: ', req.role);
-      return res.json(200, {
+      res.json(200, {
         result: 'ok',
         user: req.user._id
       });
     }
   ],
   update: [
-    user.can('edit own profile'), function(req, res) {
-      return res.send('Update user: ' + req.params.user);
+    userRole.can('edit own profile'),
+    function(req, res) {
+      res.send('Update user: ' + req.params.user);
     }
   ],
   destroy: [
-    user.is('admin'), function(req, res) {
-      return res.send('Destroy user: ' + req.params.user);
+    userRole.is('admin'),
+    function(req, res) {
+      res.send('Destroy user: ' + req.params.user);
     }
   ]
 };

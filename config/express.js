@@ -43,6 +43,9 @@ module.exports = function(app, config, passport) {
   app.resource('api', function() {
     app.resource('users');
     app.resource('sessions');
+    app.resource('courses');
+    app.resource('course_sections');
+    app.resource('lectures');
   });
   app.all('*', require(config.path.controllers + '/main'));
 };

@@ -9,9 +9,9 @@
     students:       DS.attr('number'),
 
     owner:          DS.belongsTo('App.User'),
-    sections:       DS.hasMany('App.CourseSection'),
-    questions:      DS.hasMany('App.Question'),
-    announcements:  DS.hasMany('App.Announcement')
+    sections:       DS.hasMany('App.CourseSection')
+    //questions:      DS.hasMany('App.Question')
+    //announcements:  DS.hasMany('App.Announcement')
   });
 
 
