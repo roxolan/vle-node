@@ -1,10 +1,3 @@
-/**
- * Author: Denis Zatsepin
- * Email: denis@zatsepin.spb.ru
- * Date: 27.07.13
- * Time: 17:45
- */
-
 (function(window, Em, App, undefined){
 
   App.LectureNotesView = Em.View.extend({

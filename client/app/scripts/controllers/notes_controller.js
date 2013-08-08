@@ -1,10 +1,3 @@
-/**
- * Author: Denis Zatsepin
- * Email: denis@zatsepin.spb.ru
- * Date: 27.07.13
- * Time: 18:03
- */
-
 (function(window, Em, App, undefined){
 
   App.LectureNoteController = Em.ObjectController.extend({

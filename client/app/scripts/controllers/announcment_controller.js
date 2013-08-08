@@ -14,3 +14,4 @@
   });
 
 })(window, window.Ember, window.App);
+// TODO: Rename to announcement - check where else is mentioned

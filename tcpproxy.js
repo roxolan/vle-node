@@ -1,9 +1,3 @@
-/**
- * Author: Denis Zatsepin
- * Email: denis@zatsepin.spb.ru
- * Date: 04.08.13
- * Time: 0:56
- */
 // Transparent TCP proxy for single connection only
 // Zoran Tomicic ztomicic (at) gmail.com
 //

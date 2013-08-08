@@ -1,8 +1,3 @@
-/*
-* Author: Denis Zatsepin
-* Email:  denis@zatsepin.spb.ru
-* */
-
 (function(window, Em, App, DS, undefined){
 
   App.Note = DS.Model.extend({

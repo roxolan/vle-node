@@ -1,12 +1,4 @@
 /**
- * Author: Denis Zatsepin
- * Email: denis@zatsepin.spb.ru
- * Date: 04.08.13
- * Time: 3:46
- */
-
-
-/**
 * Course model
 */
 

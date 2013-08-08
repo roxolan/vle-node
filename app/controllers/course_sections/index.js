@@ -1,12 +1,4 @@
 /**
- * Author: Denis Zatsepin
- * Email: denis@zatsepin.spb.ru
- * Date: 04.08.13
- * Time: 4:01
- */
-
-
-/**
 * Course Sections resource
 */
 var mongoose = require('mongoose')

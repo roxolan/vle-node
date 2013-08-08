@@ -4,7 +4,7 @@ var _     = require('lodash')
 var rootPath = path.normalize(__dirname + "/../");
 
 var main = {
-  name:     "LMS research",
+  name:     "VLE-Node",
   version:  "0.0.1",
   path: {
     root:         rootPath,

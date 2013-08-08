@@ -1,7 +1,7 @@
 {
-  "name": "testproject",
-  "version": "0.0.0",
-  "description": "Test project",
+  "name": "vle-node",
+  "version": "0.0.1",
+  "description": "A cool biz-school VLE, Node.js version",
   "main": "server.js",
   "scripts": {
     "test": "test.js",
@@ -13,8 +13,8 @@
     "node",
     "express"
   ],
-  "author": "denis@zatsepin.spb.ru",
-  "license": "MIT",
+  "author": "The Scholia Team",
+  "license": "Proprietary",
   "dependencies": {
     "express": "~3.2.6",
     "mongoose": "~3.6.11",
