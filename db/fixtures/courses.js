@@ -14,7 +14,7 @@ exports.Course = [
   {
     _id: 2,
     title: 'HTML5 and CSS3',
-    description: 'You mast know it',
+    description: 'You must know it',
     thumbnail: 'course_2.jpg',
     rating: 4.95,
     students: 1921,
